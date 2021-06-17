@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git, 岛">
+    <meta name="keywords" content="Elasticsearch集群部署, 岛">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git | 岛</title>
+    <title>Elasticsearch集群部署 | 岛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -467,12 +467,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git</h1>
+                    <h1 class="description center-align post-title">Elasticsearch集群部署</h1>
                 </div>
             </div>
         </div>
@@ -588,8 +588,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/Es/">
+                                <span class="chip bg-color">Es</span>
                             </a>
                         
                     </div>
@@ -600,8 +600,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
-                                工具
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                Elasticsearch
                             </a>
                         
                     </div>
@@ -613,28 +613,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-07
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-07
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    6.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    24 分
                 </div>
                 
 
@@ -657,371 +657,612 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><p>经常用到Git，但是很多命令记不住，将其整理于此。（大量摘自网络）</p>
-<p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要要记住60~100个命令。</p>
-<p><img src="http://img.saodiyang.com/FlWMWzIX9WE7PW-7eyeq8uaEJ_3p.png" alt="git常用命令"></p>
-<p>git常用命令</p>
-<p>下面整理的 Git 命令清单。几个专业名词的译名如下。</p>
-<pre class="line-numbers language-none"><code class="language-none">Workspace：工作区
-Index / Stage：暂存区
-Repository：仓库区（本地仓库）
-Remote：远程仓库
-xml复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="新建版本仓库"><a href="#新建版本仓库" class="headerlink" title="新建版本仓库"></a>新建版本仓库</h2><pre class="line-numbers language-none"><code class="language-none"># 在当前目录新建一个Git代码库
-$ git init
-
-# 新建一个目录，将其初始化为Git代码库
-$ git init [project-name]
-
-# 下载一个项目和它的整个代码历史, -o 给远程仓库起名:faker,默认origin
-$ git clone [-o faker] [url]
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
-<pre class="line-numbers language-none"><code class="language-none"># 显示当前的Git配置
-$ git config --list
-
-# 编辑Git配置文件
-$ git config -e [--global]
-
-# 设置提交代码时的用户信息
-$ git config [--global] user.name "[name]"
-$ git config [--global] user.email "[email address]"
-
-# 设置大小写敏感（windows不区分大小写的解决办法）
-$ git config core.ignorecase  false
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h2><pre class="line-numbers language-none"><code class="language-none"># 添加指定文件到暂存区
-$ git add [file1] [file2] ...
-
-# 添加指定目录到暂存区，包括子目录
-$ git add [dir]
-
-# 添加当前目录的所有文件到暂存区
-$ git add .
-
-# 添加每个变化前，都会要求确认
-# 对于同一个文件的多处变化，可以实现分次提交
-$ git add -p
-
-# 删除工作区文件，并且将这次删除放入暂存区
-$ git rm [file1] [file2] ...
-
-# 停止追踪指定文件，但该文件会保留在工作区
-$ git rm --cached [file]
-
-# 改名文件，并且将这个改名放入暂存区
-$ git mv [file-original] [file-renamed]
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><pre class="line-numbers language-none"><code class="language-none"># 提交暂存区到仓库区
-$ git commit -m [message]
-
-# 提交暂存区的指定文件到仓库区
-$ git commit [file1] [file2] ... -m [message]
-
-# 提交工作区自上次commit之后的变化，直接到仓库区
-$ git commit -a
-
-# 提交时显示所有diff信息
-$ git commit -v
-
-# 使用一次新的commit，替代上一次提交
-# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
-$ git commit --amend -m [message]
-
-# 重做上一次commit，并包括指定文件的新变化
-$ git commit --amend [file1] [file2] ...
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><pre class="line-numbers language-none"><code class="language-none"># 列出所有本地分支
-$ git branch
-
-# 列出所有远程分支
-$ git branch -r
-
-# 列出所有本地分支和远程分支
-$ git branch -a
-
-# 列出所有本地分支，并展示没有分支最后一次提交的信息
-$ git branch -v
-
-# 列出所有本地分支，并展示没有分支最后一次提交的信息和远程分支的追踪情况
-$ git branch -vv
-
-# 列出所有已经合并到当前分支的分支
-$ git branch --merged
-
-# 列出所有还没有合并到当前分支的分支
-$ git branch --no-merged
-
-# 新建一个分支，但依然停留在当前分支
-$ git branch [branch-name]
-
-# 新建一个分支，并切换到该分支
-$ git checkout -b [branch]
-
-# 新建一个与远程分支同名的分支，并切换到该分支
-$ git checkout --track [branch-name]
-
-# 新建一个分支，指向指定commit
-$ git branch [branch] [commit]
-
-# 新建一个分支，与指定的远程分支建立追踪关系
-$ git branch --track [branch] [remote-branch]
-
-# 切换到指定分支，并更新工作区
-$ git checkout [branch-name]
-
-# 切换到上一个分支
-$ git checkout -
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream-to=[remote-branch]
-$ git branch --set-upstream [branch] [remote-branch] # 已被弃用
-
-# 合并指定分支到当前分支
-$ git merge [branch]
-
-# 中断此次合并（你可能不想处理冲突）
-$ git merge --abort
-
-# 选择一个commit，合并进当前分支
-$ git cherry-pick [commit]
-
-# 删除分支
-$ git branch -d [branch-name]
-
-#新增远程分支 远程分支需先在本地创建,再进行推送
-$ git push origin [branch-name]
-
-# 删除远程分支
-$ git push origin --delete [branch-name]
-$ git branch -dr [remote/branch]
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><pre class="line-numbers language-none"><code class="language-none"># 列出所有tag
-$ git tag
-
-# 新建一个tag在当前commit
-$ git tag [tag]
-
-# 新建一个tag在指定commit
-$ git tag [tag] [commit]
-
-# 删除本地tag
-$ git tag -d [tag]
-
-# 删除远程tag
-$ git push origin :refs/tags/[tagName]
-
-# 查看tag信息
-$ git show [tag]
-
-# 提交指定tag
-$ git push [remote] [tag]
-
-# 提交所有tag
-$ git push [remote] --tags
-
-# 新建一个分支，指向某个tag
-$ git checkout -b [branch] [tag]
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="查看信息-搜索"><a href="#查看信息-搜索" class="headerlink" title="查看信息/搜索"></a>查看信息/搜索</h2><pre class="line-numbers language-none"><code class="language-none"># 显示有变更的文件
-$ git status [-sb] #s:short,给一个短格式的展示，b:展示当前分支
-
-# 显示当前分支的版本历史
-$ git log
-
-# 显示commit历史，以及每次commit发生变更的文件
-$ git log --stat
-
-# 搜索提交历史，根据关键词
-$ git log -S [keyword]
-
-# 显示某个commit之后的所有变动，每个commit占据一行
-$ git log [tag] HEAD --pretty=format:%s
-
-# 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件
-$ git log [tag] HEAD --grep feature
-
-# 显示某个文件的版本历史，包括文件改名
-$ git log --follow [file]
-$ git whatchanged [file]
-
-# 显示指定文件相关的每一次diff
-$ git log -p [file]
-
-# 显示过去5次提交
-$ git log -5 --pretty --oneline
-
-# 图形化显示所有分支
-$ git log --oneline --graph --all
-
-# 显示在分支2而不在分支1中的提交
-$ git log [分支1]..[分支2]
-$ git log ^[分支1] [分支2]
-$ git log [分支2] --not [分支1]
-
-# 显示两个分支不同时包含的提交
-$ git log [分支1]...[分支2]
-
-# 显示所有提交过的用户，按提交次数排序
-$ git shortlog -sn
-
-# 显示指定文件是什么人在什么时间修改过
-$ git blame [file]
-
-# 显示暂存区和工作区的差异
-$ git diff
-
-# 显示暂存区和上一个commit的差异
-$ git diff --cached [file]
-
-# 显示工作区与当前分支最新commit之间的差异
-$ git diff HEAD
-
-# 显示两次提交之间的差异
-$ git diff [first-branch]...[second-branch]
-
-# 显示今天你写了多少行代码
-$ git diff --shortstat "@{0 day ago}"
-
-# 显示某次提交的元数据和内容变化
-$ git show [commit]
-
-# 显示某次提交发生变化的文件
-$ git show --name-only [commit]
-
-# 显示某次提交时，某个文件的内容
-$ git show [commit]:[filename]
-
-# 显示当前分支的最近几次提交
-$ git reflog
-
-# 搜索你工作目录的文件，输出匹配行号
-$ git grep -n [关键字]
-
-# 搜索你工作目录的文件，输出每个文件包含多少个匹配
-$ git grep --count [关键字]
-
-# 优化阅读
-$ git grep --break --heading [关键字]
-
-# 查询iCheck这个字符串那次提交的
-$ git log -SiCheck --oneline
-
-# 查询git_deflate_bound函数每一次的变更
-$ git log -L :git_deflate_bound:zlib.c
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h2><pre class="line-numbers language-none"><code class="language-none"># 下载远程仓库的所有变动 [shortname] 为远程仓库的shortname, 如origin,为空时:默认origin
-$ git fetch [shortname]
-
-# 显示所有远程仓库
-$ git remote -v
-
-#显式地获得远程引用的完整列表 [shortname] 为远程仓库的shortname, 如origin,为空时:默认origin
-$ git ls-remote [shortname]
-
-# 显示某个远程仓库的信息 [remote] 为远程仓库的shortname, 如origin
-$ git remote show [shortname]
-
-# 增加一个新的远程仓库，并命名
-$ git remote add [shortname] [url]
-
-# 重命名一个远程仓库（shortname）
-$ git remote rename [旧仓库名] [新仓库名]
-
-# 删除一个远程链接
-$ git remote rm [shortname] [url]
-$ git remote remove [shortname] [url]
-
-# 修改远程仓库地址
-$ git remote set-url [shortname] [url]
-
-# 取回远程仓库的变化，并与本地分支合并
-$ git pull [remote] [branch]
-
-# 上传本地当前分支到远程仓库
-git push [remote]
-
-# 上传本地指定分支到远程仓库
-$ git push [remote] [branch]
-
-# 推送所有分支到远程仓库
-$ git push [remote] --all
-
-# 强行推送当前分支到远程仓库，即使有冲突
-$ git push [remote] --force
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><pre class="line-numbers language-none"><code class="language-none"># 恢复暂存区的指定文件到工作区
-$ git checkout [file]
-
-# 恢复某个commit的指定文件到暂存区和工作区
-$ git checkout [commit] [file]
-
-# 恢复暂存区的所有文件到工作区
-$ git checkout .
-
-#只会保留源码（工作区），回退commit(本地仓库)与index（暂存区）到某个版本
-$ git reset &lt;commit_id&gt;   #默认为 --mixed模式
-$ git reset --mixed &lt;commit_id&gt;
-
-#保留源码（工作区）和index（暂存区），只回退commit（本地仓库）到某个版本
-$ git reset --soft &lt;commit_id&gt;
-
-#源码（工作区）、commit（本地仓库）与index（暂存区）都回退到某个版本
-$ git reset --hard &lt;commit_id&gt;
-
-# 恢复到最后一次提交的状态
-$ git reset --hard HEAD
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消，并且应用到当前分支
-$ git revert [commit]
-
-# 将工作区和暂存区的代码全都存储起来了
-$ git stash [save]
-
-# 只保存工作区，不存储暂存区
-$ git stash --keep-index
-
-# 存储工作区、暂存区和未跟踪文件
-$ git stash -u
-$ git stash --include-untracked
-
-# 不存储所有改动的东西，但会交互式的提示那些改动想要被储藏、哪些改动需要保存在工作目录中
-$ git stash --patch
-
-# 不指定名字，Git认为指定最近的储藏，将存储的代码（工作区和暂存区）都应用到工作区
-$ git stash apply [stash@{2}]
-
-# 存储的工作区和暂存区的代码应用到工作区和暂存区
-$ git stash apply [stash@{2}] --index
-
-# 将存储的代码（工作区和暂存区）都应用到工作区，并从栈上扔掉他
-$ git stash pop
-
-# 删除stash@{2}的存储
-$ git stash drop [stash@{2}]
-
-# 获取储藏的列表
-$ git stash list
-
-# 移除工作目录中所有未跟踪的文件及口口那个的子目录，不会移除.gitiignore忽略的文件
-$ git clean -f -d
-
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre class="line-numbers language-none"><code class="language-none"># 生成一个可供发布的压缩包
-$ git archive
-bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+                <h2 id="一、集群部署"><a href="#一、集群部署" class="headerlink" title="一、集群部署"></a>一、集群部署</h2><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ElasticSearch 的主旨是随时可用和按需扩容。 而扩容可以通过购买性能更强大(垂直扩容,或 纵向扩容) 或者数量更多的服务器(水平扩容,或 横向扩容 )来实现。</p>
+<hr>
+<h2 id="1-节点类型"><a href="#1-节点类型" class="headerlink" title="1.节点类型"></a>1.节点类型</h2><ul>
+<li>不同角色的节点：Master eligible / Data / Ingest / Coordinating / Machine Learning</li>
+<li>在开发环境中，一个节点可承担多种角色</li>
+<li>在生产环境中<ul>
+<li>根据数据量，写入和查询的吞吐量，选择适合的部署方式</li>
+<li>建议设置单一角色的节点（dedicated node）</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-节点参数配置"><a href="#2-节点参数配置" class="headerlink" title="2.节点参数配置"></a>2.节点参数配置</h2><ul>
+<li>一个节点在默认情况下会同时扮演： master eligible ，data node 和 ingest node</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>节点类型</th>
+<th>配置参数</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master eligible</td>
+<td>node.master</td>
+<td>true</td>
+</tr>
+<tr>
+<td>data</td>
+<td>node.data</td>
+<td>true</td>
+</tr>
+<tr>
+<td>ingest</td>
+<td>node.ingest</td>
+<td>true</td>
+</tr>
+<tr>
+<td>coodrinating only</td>
+<td>无</td>
+<td>设置上面三个参数全部为 false</td>
+</tr>
+<tr>
+<td>machine learning</td>
+<td>node.ml</td>
+<td>true (需要 enable x-pack)</td>
+</tr>
+</tbody></table>
+<h2 id="3-单一角色：职责分离的好处"><a href="#3-单一角色：职责分离的好处" class="headerlink" title="3.单一角色：职责分离的好处"></a>3.单一角色：职责分离的好处</h2><ul>
+<li>Dedicated master eligible nodes：负责集群状态（cluster state）的管理<ul>
+<li>使用低配置的 CPU ,RAM 和磁盘</li>
+</ul>
+</li>
+<li>Dedicated data nodes: 负责数据存储及处理客户端请求<ul>
+<li>使用高配置的 CPU,RAM 和磁盘</li>
+</ul>
+</li>
+<li>Dedicated ingest nodes: 负责数据处理<ul>
+<li>使用高配置的 CPU ; 中等配置的 RAM; 低配置的磁盘</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Dedicate-Master-Node"><a href="#4-Dedicate-Master-Node" class="headerlink" title="4.Dedicate Master Node"></a>4.Dedicate Master Node</h2><ul>
+<li>从高可用 &amp; 避免脑裂的角色出发<ul>
+<li>一般在生产环境中配置 3 台</li>
+<li>一个集群只有 1 台活跃的主节点<ul>
+<li>负载分片管理，索引创建，集群管理等操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果和数据节点或者 Coordinate 节点混合部署<ul>
+<li>数据节点相对有比较大的内存占用</li>
+<li>Coordinate 节点有时候可能会有开销很高的查询，导致 OOM</li>
+<li>这些都有可能影响 Master 节点，导致集群的不稳定</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-Anthentication-身份认证"><a href="#5-Anthentication-身份认证" class="headerlink" title="5.Anthentication 身份认证"></a>5.Anthentication 身份认证</h2><ul>
+<li><p>Realms : X-Pack 中的认证服务</p>
+<ul>
+<li>内置 Realms （免费）<ul>
+<li>File / Native (用户名密码保存在 Elasticsearch)</li>
+</ul>
+</li>
+<li>外部 Realms （收费）<ul>
+<li>LDAP / Active Directory / PKI / SAML / Kerberos</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Docker中 ES集群添加X-Pack（密码验证） docker 集群配置账号密码遇到了各种奇葩的问题，经过各种踩坑最终实现效果了，流程如下</strong>:</p>
+<ul>
+<li><p>1.这里有一个大坑，在集群配置账号密码时，需要先在master节点中生成ca文件，并且将elastic-certificates.p12文件拷贝到所有的数据节点config目录下，并且确保.P12文件有访问权限。 (chmod 777 elastic-certificates.p12)</p>
+</li>
+<li><p>2.并且需要修改所有节点的.yml文件配置,配置如下</p>
+</li>
+<li><p>3.启动所有节点，访问时 看看是否是需要账号登录</p>
+</li>
+<li><p>4.当出现需要账号密码时，再通过master节点去生成账号和密码， elasticsearch-setup-passwords interactive 或者 elasticsearch-setup-passwords auto</p>
+</li>
+<li><p>如果执行中途失败，找到问题原因后，可以通过kibana删除.security-7 索引，再重复执行上面命令</p>
+<pre class="line-numbers language-none"><code class="language-none"># 集群名称
+cluster.name: "fyt-es"
+# 节点名称，确保每个节点名称唯一
+node.name: node-3
+node.master: false
+node.data: true
+network.publish_host: 192.168.0.190
+network.host: 0.0.0.0
+http.port: 9200
+transport.tcp.port: 9300
+# 所有集群的IP
+discovery.seed_hosts: ["192.168.0.187", "192.168.0.188", "192.168.0.189", "192.168.0.190"]
+# 默认主节点
+cluster.initial_master_nodes: node-master-1
+http.cors.enabled: true
+# 开启账号密码验证
+xpack.security.enabled: true
+xpack.license.self_generated.type: basic
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+#1. .p12的路径需要设置成绝对路径
+#2. 要确保.p12的文件有权限， chmod 777 elastic-certificates.p12
+xpack.security.transport.ssl.keystore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>配置 Kibana</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">#修改 kibana.yml，使用上面设置好的kibana账户
+elasticsearch.username: "kibana"
+elasticsearch.password: "pwd"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="集群部署常见问题"><a href="#集群部署常见问题" class="headerlink" title="集群部署常见问题"></a>集群部署常见问题</h2><ul>
+<li>Docker安装 elasticsearch 报错:max virtual memory areas vm.max_map_count [65530] is too low</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">使用下面命令解决：
+vim /etc/sysctl.conf
+添加 一行 vm.max_map_count=655360
+
+加载参数
+sysctl -p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="二、分片设定及管理"><a href="#二、分片设定及管理" class="headerlink" title="二、分片设定及管理"></a>二、分片设定及管理</h2><h1 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h1><p>集群中分片的设置及管理注意要点</p>
+<hr>
+<h2 id="1-如何设计分片数"><a href="#1-如何设计分片数" class="headerlink" title="1.如何设计分片数"></a>1.如何设计分片数</h2><ul>
+<li>当分片数 &gt; 节点数时<ul>
+<li>一旦集群中有新的数据节点加入，分片就可以自动进行分配</li>
+<li>分片在重新分配时，系统不会有 downtime</li>
+</ul>
+</li>
+<li>多分片的好处：一个索引如果分布在不同的节点，多个节点可以并行执行<ul>
+<li>查询可以并行执行</li>
+<li>数据写入可以分散到多个机器</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-分片过多所带来的副作用"><a href="#2-分片过多所带来的副作用" class="headerlink" title="2.分片过多所带来的副作用"></a>2.分片过多所带来的副作用</h2><ul>
+<li>Shard 是 Elasticsearch 实现集群水平扩展的最小单位</li>
+<li>过多设置分片数会带来一些潜在的问题<ul>
+<li>每个分片是一个 Lucene 的 索引，会使用机器的资源。过多的分片会导致额外的性能开销<ul>
+<li>Lucene Indices / File descriptors / RAM / CPU</li>
+<li>每次搜索的请求，需要从每个分片上获取数据</li>
+<li>分片的 Meta 信息由 Master 节点维护。过多，会增加管理的负担。经验值，控制分片总数在 10 W 以内</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-如何确定主分片数"><a href="#3-如何确定主分片数" class="headerlink" title="3.如何确定主分片数"></a>3.如何确定主分片数</h2><ul>
+<li>从存储的物理角度看<ul>
+<li>日志类应用，单个分片不要大于 50 GB</li>
+<li>搜索类应用，单个分片不要超过 20 GB</li>
+</ul>
+</li>
+<li>为什么要控制分片存储大小<ul>
+<li>提高 Update 的性能</li>
+<li>Merge 时，减少所需的资源</li>
+<li>丢失节点后，具备更快的恢复速度 / 便于分片在集群内 Rebalancing</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-如何确定副本分片数"><a href="#4-如何确定副本分片数" class="headerlink" title="4.如何确定副本分片数"></a>4.如何确定副本分片数</h2><ul>
+<li>副本是主分片的拷贝<ul>
+<li>提高系统可用性：相应查询请求，防止数据丢失</li>
+<li>需要占用和主分片一样的资源</li>
+</ul>
+</li>
+<li>对性能的影响<ul>
+<li>副本会降低数据的索引速度：有几份副本就会有几倍的 CPU 资源消耗在索引上</li>
+<li>会减缓对主分片的查询压力，但是会消耗同样的内存资源</li>
+<li>如果机器资源充分，提高副本数，可以提高整体的查询 QPS</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-调整分片总数设定，避免分配不均衡"><a href="#5-调整分片总数设定，避免分配不均衡" class="headerlink" title="5.调整分片总数设定，避免分配不均衡"></a>5.调整分片总数设定，避免分配不均衡</h2><ul>
+<li>ES 的分片策略会尽量保证节点上的分片数大 致相同<ul>
+<li>扩容的新节点没有数据，导致新索引集中在新 的节点</li>
+<li>热点数据过于集中，可能会产生新能问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、集群容量规划"><a href="#三、集群容量规划" class="headerlink" title="三、集群容量规划"></a>三、集群容量规划</h2><h1 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h1><p>ES 是在系统架构设计时常用到的数据搜索与存储系统，对于输入的数据，ES会按照预先定义好的设置（如果没有预先设置好，可以设置动态映射）进行分词，建立倒排索引和Doc_values，以方便搜索查询。ES本身具备对索引进行分片和备份的功能，使用者可以在索引建立时进行设置。ES 底层使用了Luence对数据进行管理，对宿主机的内存和磁盘IO有较高的要求，这使得每个ES的节点成本会比较高，因此在规划阶段需要对要使用的ES节点数目进行评估，以了解后续的成本状况。</p>
+<hr>
+<h2 id="容量规划"><a href="#容量规划" class="headerlink" title="容量规划"></a>容量规划</h2><ul>
+<li>一个集群总共需要多少个节点？ 一个索引需要设置几个分片？<ul>
+<li>规划上需要保持一定的余量，当负载出现波动，节点出现丢失时，还能正常运行</li>
+</ul>
+</li>
+<li>做容量规划时，一些需要考虑的因素</li>
+<li>机器的软硬件配置</li>
+<li>单条文档的尺寸 / 文档的总数据量 / 索引的总数据量（Time base 数据保留的时间）/ 副本分片数</li>
+<li>文档是如何写入的（Bulk 的尺寸）</li>
+<li>文档的复杂度，文档是如何进行读取的（怎么样的查询和聚合）</li>
+</ul>
+<h2 id="常见用例"><a href="#常见用例" class="headerlink" title="常见用例"></a>常见用例</h2><ul>
+<li>搜索：固定大小的数据集<ul>
+<li>搜索的数据集增长相对比较缓慢</li>
+</ul>
+</li>
+<li>日志：基于时间序列的数据<ul>
+<li>使用 ES 存放日志与性能指标。数据每天不断写入，增长速度较快</li>
+<li>结合 Warm Node 做数据的老化处理</li>
+</ul>
+</li>
+</ul>
+<h2 id="硬件配置"><a href="#硬件配置" class="headerlink" title="硬件配置"></a>硬件配置</h2><ul>
+<li>选择合理的硬件，数据节点尽可能使用 SSD</li>
+<li>搜索等性能要求高的场景，建议 SSD<ul>
+<li>按照 1 ：10 的比例配置内存和硬盘</li>
+</ul>
+</li>
+<li>日志类和查询并发低的场景，可以考虑使用机械硬盘存储<ul>
+<li>按照 1：50 的比例配置内存和硬盘</li>
+</ul>
+</li>
+<li>单节点数据建议控制在 2 TB 以内，最大不建议超过 5 TB</li>
+<li>JVM 配置机器内存的一半，JVM 内存配置不建议超过 32 G</li>
+</ul>
+<h2 id="创建基于时间序列的索引"><a href="#创建基于时间序列的索引" class="headerlink" title="创建基于时间序列的索引"></a>创建基于时间序列的索引</h2><ul>
+<li>创建 time-based 索引<ul>
+<li>在索引的名字中增加时间信息</li>
+<li>按照 每天 / 每周 / 每月 的方式进行划分</li>
+</ul>
+</li>
+<li>带来的好处<ul>
+<li>更加合理的组织索引，例如随着时间推移，便于对索引做的老化处理<ul>
+<li>利用 Hot &amp; Warm Architecture</li>
+<li>备份和删除以及删除的效率高。（ Delete By Query 执行速度慢，底层不也不会立刻释放空间，而 Merge 时又很消 耗资源）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="写入时间序列的数据-–-基于-Index-Alias"><a href="#写入时间序列的数据-–-基于-Index-Alias" class="headerlink" title="写入时间序列的数据 – 基于 Index Alias"></a>写入时间序列的数据 – 基于 Index Alias</h2><ul>
+<li>Time-based 索引<ul>
+<li>创建索引，每天 / 每周 / 每月</li>
+<li>在索引的名字中增加时间信息</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">POST _aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "logs_2019-06-27",
+        "alias": "logs_write"
+      }
+    },
+    {
+      "remove": {
+        "index": "logs_2019-06-26",
+        "alias": "logs_write"
+      }
+    }
+  ]
+}
+
+
+# POST /&lt;logs-{now/d}/_search
+POST /%3Clogs-%7Bnow%2Fd%7D%3E/_search
+
+# POST /&lt;logs-{now/w}/_search
+POST /%3Clogs-%7Bnow%2Fw%7D%3E/_search<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="集群扩容"><a href="#集群扩容" class="headerlink" title="集群扩容"></a>集群扩容</h2><ul>
+<li>增加 Coordinating / Ingest Node<ul>
+<li>解决 CPU 和 内存开销的问题</li>
+</ul>
+</li>
+<li>增加数据节点<ul>
+<li>解决存储的容量的问题</li>
+<li>为避免分片分布不均的问题，要提前监控磁盘空间，提前清理数据或增加节点（70%）</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、集群健康与问题排查"><a href="#四、集群健康与问题排查" class="headerlink" title="四、集群健康与问题排查"></a>四、集群健康与问题排查</h2><h1 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h1><p>ES集群日常的运维问题处理</p>
+<hr>
+<h2 id="Health-相关的-API"><a href="#Health-相关的-API" class="headerlink" title="Health 相关的 API"></a>Health 相关的 API</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET _cluster/health</td>
+<td>集群的状态（检查 节点数量）</td>
+</tr>
+<tr>
+<td>GET _cluster/health?level=indices</td>
+<td>所有索引的健康状态 （查看有问题的索引</td>
+</tr>
+<tr>
+<td>GET _cluster/health/my_index</td>
+<td>单个索引的健康状态（查看具体的索引）</td>
+</tr>
+<tr>
+<td>GET _cluster/health?level=shards</td>
+<td>分片级的索引</td>
+</tr>
+<tr>
+<td>GET _cluster/allocation/explain</td>
+<td>返回第一个未分配 Shard 的原因</td>
+</tr>
+</tbody></table>
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例 1"></a>案例 1</h3><ul>
+<li>症状：集群变红</li>
+<li>分析：通过 Allocation Explain API 发现 创建索引失败，因为无法找到标记了相应 box type 的节点</li>
+<li>解决：删除索引，集群变绿。重新创建索引，并且指定正确的 routing box type，索引创建成 功。集群保持绿色状态</li>
+</ul>
+<h3 id="案例-2"><a href="#案例-2" class="headerlink" title="案例 2"></a>案例 2</h3><ul>
+<li>症状：集群变黄</li>
+<li>分析：通过 Allocation Explain API 发现无法在相同的节点上创建副本</li>
+<li>解决：将索引的副本数设置为 0，或者通过增加节点解决</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">#案例1
+DELETE mytest
+PUT mytest
+{
+  "settings":{
+    "number_of_shards":3,
+    "number_of_replicas":0,
+    "index.routing.allocation.require.box_type":"hott"
+  }
+}
+
+
+
+
+
+# 检查集群状态，查看是否有节点丢失，有多少分片无法分配
+GET /_cluster/health/
+
+# 查看索引级别,找到红色的索引
+GET /_cluster/health?level=indices
+
+
+#查看索引的分片
+GET _cluster/health?level=shards
+
+# Explain 变红的原因
+GET /_cluster/allocation/explain
+
+GET /_cat/shards/mytest
+GET _cat/nodeattrs
+
+DELETE mytest
+GET /_cluster/health/
+
+PUT mytest
+{
+  "settings":{
+    "number_of_shards":3,
+    "number_of_replicas":0,
+    "index.routing.allocation.require.box_type":"hot"
+  }
+}
+
+GET /_cluster/health/
+
+#案例2, Explain 看 hot 上的 explain
+DELETE mytest
+PUT mytest
+{
+  "settings":{
+    "number_of_shards":2,
+    "number_of_replicas":1,
+    "index.routing.allocation.require.box_type":"hot"
+  }
+}
+
+GET _cluster/health
+GET _cat/shards/mytest
+GET /_cluster/allocation/explain
+
+PUT mytest/_settings
+{
+    "number_of_replicas": 0
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="分片没有被分配的一些原因"><a href="#分片没有被分配的一些原因" class="headerlink" title="分片没有被分配的一些原因"></a>分片没有被分配的一些原因</h2><ul>
+<li>INDEX_CREATE: 创建索引导致。在索引的全部分片分配完成之前，会有短暂的 Red，不一定代表有问题</li>
+<li>CLUSTER_RECOVER：集群重启阶段，会有这个问题</li>
+<li>INDEX_REOPEN：Open 一个之前 Close 的索引</li>
+<li>DANGLING_INDEX_IMPORTED：一个节点离开集群期间，有索引被删除。这个节点重新返回时，会导致 Dangling 的问题</li>
+</ul>
+<h2 id="五、提升集群的读、写性能"><a href="#五、提升集群的读、写性能" class="headerlink" title="五、提升集群的读、写性能"></a>五、提升集群的读、写性能</h2><h1 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h1><p>在日常的使用中，对于集群的细节点掌握程度，很大程度的会影响集群的性能，特别是在数据量庞大的时候。下面总结几点：</p>
+<hr>
+<h1 id="一、提高写入性能的方法"><a href="#一、提高写入性能的方法" class="headerlink" title="一、提高写入性能的方法"></a>一、提高写入性能的方法</h1><ul>
+<li>写性能优化的目标：增大写吞吐量（Events Per Second），越高越好</li>
+<li>客户端：多线程，批量写<ul>
+<li>可以通过性能测试，确定最佳文档数量</li>
+<li>多线程：需要观察是否有 HTTP 429 返回，实现 Retry 以及线程数量的自动调节</li>
+</ul>
+</li>
+<li>服务器端：单个性能问题，往往是多个因素造成的。需要先分解问题，在单个节点上进行调整并 且结合测试，尽可能压榨硬件资源，以达到最高吞吐量<ul>
+<li>使用更好的硬件。观察 CPU / IO Block</li>
+<li>线程切换 / 堆栈状况</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-关闭无关的功能"><a href="#1-关闭无关的功能" class="headerlink" title="1.关闭无关的功能"></a>1.关闭无关的功能</h2><ul>
+<li>只需要聚合不需要搜索， Index 设置成 false</li>
+<li>不需要算分， Norms 设置成 false</li>
+<li>不要对字符串使用默认的 dynamic mapping。字段 数量过多，会对性能产生比较大的影响</li>
+<li>Index_options 控制在创建倒排索引时，哪些内容 会被添加到倒排索引中。优化这些设置，一定程度 可以节约 CPU</li>
+<li>关闭 _source，减少 IO 操作；（适合指标型数据）</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">什么情况下不用保留 _source字段？比如如果某个字段内容非常多，我们的业务场景只需要能对该字段进行搜索，可以考虑关闭 
+_source字段，我们搜索到文档id后，再通过文档id去数据库拿到这个字段的内容。这样可以节省很多空间。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="2-数据写入的过程"><a href="#2-数据写入的过程" class="headerlink" title="2.数据写入的过程"></a>2.数据写入的过程</h2><ul>
+<li>Refresh<ul>
+<li>将文档先保存在 Index buffer 中， 以 refresh_interval 为间隔时间，定期清空 buffer，生成 segment，借助文件系统缓存的特性，先将 segment 放在文件系统缓存中，并开放查询，以提升搜索的实时性</li>
+</ul>
+</li>
+<li>Translog<ul>
+<li>Segment 没有写入磁盘，即便发生了当机，重启后，数据也能恢复，默认配置是每次请求都会落盘</li>
+</ul>
+</li>
+<li>Flush<ul>
+<li>删除旧的 translog 文件</li>
+<li>生成 Segment 并写入磁盘 / 更新 commit point 并写入磁盘。 ES 自动完成，可优化点不多</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-Refresh-Interval"><a href="#3-Refresh-Interval" class="headerlink" title="3.Refresh Interval"></a>3.Refresh Interval</h2><ul>
+<li>降低 Refresh 的频率<ul>
+<li>增加 refresh_interval 的数值。默认为 1s ，如果设置成 -1 ，会禁止自动 refresh<ul>
+<li>避免过于频繁的 refresh，而生成过多的 segment 文件</li>
+<li>但是会降低搜索的实时性</li>
+</ul>
+</li>
+<li>增大静态配置参数 indices.memory.index_buffer_size<ul>
+<li>默认是 10%， 会导致自动触发 refresh</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Translog"><a href="#4-Translog" class="headerlink" title="4.Translog"></a>4.Translog</h2><ul>
+<li>降低写磁盘的频率，但是会降低容灾能力</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">- `Index.translog.durability`：默认是 request，每个请求都落盘。设置成 async，异步写入
+  - `Index.translog.sync_interval` 设置为 60s，每分钟执行一次
+  - `Index.translog.flush_threshod_size`: 默认 512 mb，可以适当调大。 当 translog 超过该值，会触发 flush<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-分片设定"><a href="#5-分片设定" class="headerlink" title="5.分片设定"></a>5.分片设定</h2><ul>
+<li><p>副本在写入时设为 0，完成后再增加</p>
+</li>
+<li><p>合理设置主分片数，确保均匀分配在所有数据节点上</p>
+<ul>
+<li>Index.routing.allocation.total_share_per_node: 限定每个索引在每个节点上可分配的分片数（replicas and primaries）</li>
+<li>5 个节点的集群。 索引有 5 个主分片，1 个副本，应该如何设置？<ul>
+<li>（5+5） / 5 = 2</li>
+<li>生产环境中要适当调大这个数字，避免有节点下线时，分片无法正常迁移</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>例子</p>
+<pre class="line-numbers language-none"><code class="language-none">DELETE myindex
+PUT myindex
+{
+  "settings": {
+    "index": {
+      "refresh_interval": "30s",
+      "number_of_shards": "2"
+    },
+    "routing": {
+      "allocation": {
+        "total_shards_per_node": "3"
+      }
+    },
+    "translog": {
+      "sync_interval": "30s",
+      "durability": "async"
+    },
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "dynamic": false,
+    "properties": {}
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h1 id="二、提高读取性能的方法"><a href="#二、提高读取性能的方法" class="headerlink" title="二、提高读取性能的方法"></a>二、提高读取性能的方法</h1><h3 id="1-尽量-Denormalize-数据"><a href="#1-尽量-Denormalize-数据" class="headerlink" title="1.尽量 Denormalize 数据"></a>1.尽量 Denormalize 数据</h3><ul>
+<li>Elasticsearch ！= 关系型数据库</li>
+<li>尽可能 Denormalize 数据，从而获取最佳的性能<ul>
+<li>使用 Nested 类型的数据。查询速度会慢几倍</li>
+<li>使用 Parent / Child 关系。查询速度会慢几百倍</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-数据建模"><a href="#2-数据建模" class="headerlink" title="2.数据建模"></a>2.数据建模</h3><ul>
+<li>尽量将数据先行计算，然后保存到 Elasticsearch 中。尽量避免查询时的 Script 计算</li>
+<li>尽量使用 Filter Context，利用缓存机制，减少不必要的算分</li>
+<li>结合 profile，explain API 分析慢查询的问题，持续优化数据模型<ul>
+<li>严禁使用 * 开头通配符 Terms 查询</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-聚合文档消耗内存"><a href="#3-聚合文档消耗内存" class="headerlink" title="3.聚合文档消耗内存"></a>3.聚合文档消耗内存</h3><ul>
+<li>聚合查询会消耗内存，特别是针对很大的数据集进行聚合运算<ul>
+<li>如果可以控制聚合的数量，就能减少内存的开销</li>
+</ul>
+</li>
+<li>当需要使用不同的 Query Scope，可以使用 Filter Bucket</li>
+</ul>
+<h3 id="4-优化分片"><a href="#4-优化分片" class="headerlink" title="4.优化分片"></a>4.优化分片</h3><ul>
+<li>避免 Over Sharing<ul>
+<li>一个查询需要访问每一个分片，分片过多，会导致不必要的查询开销</li>
+</ul>
+</li>
+<li>结合应用场景，控制单个分片的尺寸<ul>
+<li>Search： 20GB</li>
+<li>Logging：40GB</li>
+</ul>
+</li>
+<li>Force-merge Read-only 索引<ul>
+<li>使用基于时间序列的索引，将只读的索引进行 force merge，减少 segment 数</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-读性能优化"><a href="#5-读性能优化" class="headerlink" title="5.读性能优化"></a>5.读性能优化</h3><ul>
+<li>影响查询性能的一些因素<ul>
+<li>数据模型和索引配置是否优化</li>
+<li>数据规模是否过大，通过 Filter 减少不必要的数据计算</li>
+<li>查询语句是否优化</li>
+</ul>
+</li>
+</ul>
+<h2 id="六、ES集群优化"><a href="#六、ES集群优化" class="headerlink" title="六、ES集群优化"></a>六、ES集群优化</h2><h1 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h1><p>在网上收集到的ES集群可优化的点，供参考</p>
+<hr>
+<h1 id="1、集群规划优化实践"><a href="#1、集群规划优化实践" class="headerlink" title="1、集群规划优化实践"></a>1、集群规划优化实践</h1><ul>
+<li>1.1 基于目标数据量规划集群 在业务初期，经常被问到的问题，要几个节点的集群，内存、CPU要多大，要不要SSD？ 最主要的考虑点是：你的目标存储数据量是多大？可以针对目标数据量反推节点多少。</li>
+<li>1.2 要留出容量Buffer 注意：Elasticsearch有三个警戒水位线，磁盘使用率达到85%、90%、95%。 不同警戒水位线会有不同的应急处理策略。 这点，磁盘容量选型中要规划在内。控制在85%之下是合理的。 当然，也可以通过配置做调整。</li>
+<li>1.3 ES集群各节点尽量不要和其他业务功能复用一台机器。 除非内存非常大。 举例：普通服务器，安装了ES+Mysql+redis，业务数据量大了之后，势必会出现内存不足等问题。</li>
+<li>1.4 磁盘尽量选择SSD Elasticsearch官方文档肯定推荐SSD，考虑到成本的原因。需要结合业务场景， 如果业务对写入、检索速率有较高的速率要求，建议使用SSD磁盘。 阿里的业务场景，SSD磁盘比机械硬盘的速率提升了5倍。 但要因业务场景而异。</li>
+<li>1.5 内存配置要合理 官方建议：堆内存的大小是官方建议是：Min（32GB，机器内存大小/2）。 Medcl和wood大叔都有明确说过，不必要设置32/31GB那么大，建议：热数据设置：26GB，冷数据：31GB。 总体内存大小没有具体要求，但肯定是内容越大，检索性能越好。 经验值供参考：每天200GB+增量数据的业务场景，服务器至少要64GB内存。 除了JVM之外的预留内存要充足，否则也会经常OOM。</li>
+<li>1.6 CPU核数不要太小 CPU核数是和ESThread pool关联的。和写入、检索性能都有关联。 建议：16核+。</li>
+<li>1.7 超大量级的业务场景，可以考虑跨集群检索 除非业务量级非常大，例如：滴滴、携程的PB+的业务场景，否则基本不太需要跨集群检索。</li>
+<li>1.8 集群节点个数无需奇数 ES内部维护集群通信，不是基于zookeeper的分发部署机制，所以，无需奇数。 但是discovery.zen.minimum_master_nodes的值要设置为：候选主节点的个数/2+1，才能有效避免脑裂。</li>
+<li>1.9 节点类型优化分配 集群节点数：&lt;=3，建议：所有节点的master：true， data：true。既是主节点也是路由节点。 集群节点数：&gt;3, 根据业务场景需要，建议：逐步独立出Master节点和协调/路由节点。</li>
+<li>1.10 建议冷热数据分离 热数据存储SSD和普通历史数据存储机械磁盘，物理上提高检索效率。</li>
+</ul>
+<h1 id="2、索引优化实践"><a href="#2、索引优化实践" class="headerlink" title="2、索引优化实践"></a>2、索引优化实践</h1><p>Mysql等关系型数据库要分库、分表。Elasticserach的话也要做好充分的考虑。</p>
+<ul>
+<li>2.1 设置多少个索引？ 建议根据业务场景进行存储。 不同通道类型的数据要分索引存储。举例：知乎采集信息存储到知乎索引；APP采集信息存储到APP索引。</li>
+<li>2.2 设置多少分片？ 建议根据数据量衡量。 经验值：建议每个分片大小不要超过30GB。</li>
+<li>2.3 分片数设置？ 建议根据集群节点的个数规模，分片个数建议&gt;=集群节点的个数。 5节点的集群，5个分片就比较合理。 注意：除非reindex操作，分片数是不可以修改的。</li>
+<li>2.4副本数设置？ 除非你对系统的健壮性有异常高的要求，比如：银行系统。可以考虑2个副本以上。 否则，1个副本足够。 注意：副本数是可以通过配置随时修改的。</li>
+<li>2.5不要再在一个索引下创建多个type 即便你是5.X版本，考虑到未来版本升级等后续的可扩展性。 建议：一个索引对应一个type。6.x默认对应_doc，5.x你就直接对应type统一为doc。</li>
+<li>2.6 按照日期规划索引 随着业务量的增加，单一索引和数据量激增给的矛盾凸显。 按照日期规划索引是必然选择。 好处1：可以实现历史数据秒删。很对历史索引delete即可。注意：一个索引的话需要借助delete_by_query+force_merge操作，慢且删除不彻底。 好处2：便于冷热数据分开管理，检索最近几天的数据，直接物理上指定对应日期的索引，速度快的一逼！ 操作参考：模板使用+rollover API使用。</li>
+<li>2.7 务必使用别名 ES不像mysql方面的更改索引名称。使用别名就是一个相对灵活的选择。</li>
+</ul>
+<h1 id="3、数据模型优化实践"><a href="#3、数据模型优化实践" class="headerlink" title="3、数据模型优化实践"></a>3、数据模型优化实践</h1><ul>
+<li>3.1 不要使用默认的Mapping 默认Mapping的字段类型是系统自动识别的。其中：string类型默认分成：text和keyword两种类型。如果你的业务中不需要分词、检索，仅需要精确匹配，仅设置为keyword即可。 根据业务需要选择合适的类型，有利于节省空间和提升精度，如：浮点型的选择。</li>
+<li>3.2 Mapping各字段的选型流程 在这里插入图片描述</li>
+<li>3.3 选择合理的分词器 常见的开源中文分词器包括：ik分词器、ansj分词器、hanlp分词器、结巴分词器、海量分词器、“ElasticSearch最全分词器比较及使用方法” 搜索可查看对比效果。 如果选择ik，建议使用ik_max_word。因为：粗粒度的分词结果基本包含细粒度ik_smart的结果。</li>
+<li>3.4 date、long、还是keyword 根据业务需要，如果需要基于时间轴做分析，必须date类型； 如果仅需要秒级返回，建议使用keyword。</li>
+</ul>
+<h1 id="4、数据写入优化实践"><a href="#4、数据写入优化实践" class="headerlink" title="4、数据写入优化实践"></a>4、数据写入优化实践</h1><ul>
+<li><p>4.1 要不要秒级响应？ Elasticsearch近实时的本质是：最快1s写入的数据可以被查询到。 如果refresh_interval设置为1s，势必会产生大量的segment，检索性能会受到影响。 所以，非实时的场景可以调大，设置为30s，甚至-1。</p>
+</li>
+<li><p>4.2 减少副本，提升写入性能。 写入前，副本数设置为0， 写入后，副本数设置为原来值。</p>
+</li>
+<li><p>4.3 能批量就不单条写入 批量接口为bulk，批量的大小要结合队列的大小，而队列大小和线程池大小、机器的cpu核数。</p>
+</li>
+<li><p>4.4 禁用swap 在Linux系统上，通过运行以下命令临时禁用交换：</p>
+<p>sudo swapoff -a</p>
+</li>
+</ul>
+<h1 id="5、检索聚合优化实战"><a href="#5、检索聚合优化实战" class="headerlink" title="5、检索聚合优化实战"></a>5、检索聚合优化实战</h1><ul>
+<li>5.1 禁用 wildcard模糊匹配 数据量级达到TB+甚至更高之后，wildcard在多字段组合的情况下很容易出现卡死，甚至导致集群节点崩溃宕机的情况。 后果不堪设想。 替代方案： 方案一：针对精确度要求高的方案:两套分词器结合，standard和ik结合，使用match_phrase检索。 方案二：针对精确度要求不高的替代方案：建议ik分词，通过match_phrase和slop结合查询。</li>
+<li>5.2极小的概率使用match匹配 中文match匹配显然结果是不准确的。很大的业务场景会使用短语匹配“match_phrase”。 match_phrase结合合理的分词词典、词库，会使得搜索结果精确度更高，避免噪音数据。</li>
+<li>5.3 结合业务场景，大量使用filter过滤器 对于不需要使用计算相关度评分的场景，无疑filter缓存机制会使得检索更快。 举例：过滤某邮编号码。</li>
+<li>5.4控制返回字段和结果 和mysql查询一样，业务开发中，select * 操作几乎是不必须的。 同理，ES中，<em>source 返回全部字段也是非必须的。 要通过</em>source 控制字段的返回，只返回业务相关的字段。 网页正文content，网页快照html_content类似字段的批量返回，可能就是业务上的设计缺陷。 显然，摘要字段应该提前写入，而不是查询content后再截取处理。</li>
+<li>5.5 分页深度查询和遍历 分页查询使用：from+size; 遍历使用：scroll； 并行遍历使用：scroll+slice。 斟酌集合业务选型使用。</li>
+<li>5.6 聚合Size的合理设置 聚合结果是不精确的。除非你设置size为2的32次幂-1，否则聚合的结果是取每个分片的Top size元素后综合排序后的值。 实际业务场景要求精确反馈结果的要注意。 尽量不要获取全量聚合结果——从业务层面取TopN聚合结果值是非常合理的。因为的确排序靠后的结果值意义不大。</li>
+<li>5.7 聚合分页合理实现 聚合结果展示的时，势必面临聚合后分页的问题，而ES官方基于性能原因不支持聚合后分页。 如果需要聚合后分页，需要自开发实现。包含但不限于： 方案一：每次取聚合结果，拿到内存中分页返回。 方案二：scroll结合scroll after集合redis实现。</li>
+</ul>
 
                 
             </div>
@@ -1036,8 +1277,8 @@ bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/Es/">
+                                    <span class="chip bg-color">Es</span>
                                 </a>
                             
                         </div>
@@ -1349,46 +1590,48 @@ bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/07/vim/">
+                <a href="/2021/06/17/elasticsearch-ji-qun-bu-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.png" class="responsive-img" alt="Vim">
+                        <img src="/medias/featureimages/5.png" class="responsive-img" alt="Elasticsearch集群部署">
                         
-                        <span class="card-title">Vim</span>
+                        <span class="card-title">Elasticsearch集群部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vim
+                            Elasticsearch
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                    Elasticsearch
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vim/">
-                        <span class="chip bg-color">Vim</span>
+                    <a href="/tags/Es/">
+                        <span class="chip bg-color">Es</span>
                     </a>
                     
                 </div>
@@ -1402,31 +1645,31 @@ bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/07/docker/">
+                <a href="/2021/06/17/elasticsearch-huan-jing-da-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.png" class="responsive-img" alt="Docker">
+                        <img src="/medias/featureimages/14.png" class="responsive-img" alt="Elasticsearch环境搭建">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">Elasticsearch环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker
+                            Elasticsearch
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                    运维
+                            <a href="/categories/Elasticsearch/" class="post-category">
+                                    Elasticsearch
                                 </a>
                             
                             
@@ -1436,8 +1679,8 @@ bash复制代码<span aria-hidden="true" class="line-numbers-rows"><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/Es/">
+                        <span class="chip bg-color">Es</span>
                     </a>
                     
                 </div>
