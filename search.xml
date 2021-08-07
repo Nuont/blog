@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>终端</title>
+      <link href="2021/08/07/zhong-duan/"/>
+      <url>2021/08/07/zhong-duan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li><p>lsof -i :端口<br>kill -9 进程ID<br>ps -ef|grep 8888</p></li><li><p>pip</p><ul><li>```<br>pip freeze | xargs pip uninstall -y<br>卸载所有安装的包cpca<br>pip config set global.index-url <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a><br>源<br><a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br><a href="http://pypi.doubanio.com/simple/">http://pypi.doubanio.com/simple/</a><br><a href="https://mirrors.cloud.tencent.com/pypi/simple/">https://mirrors.cloud.tencent.com/pypi/simple/</a><br><a href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a><pre class="line-numbers language-none"><code class="language-none">- node  - ```    `export https_proxy="http://127.0.0.1:7890"` 设置终端代理    # 清理缓存    npm cache clean -f    # 临时使用    npm --registry https://registry.npm.taobao.org install express        # 永久使用    npm config set registry https://registry.npm.taobao.org        # 恢复使用    npm config set registry https://registry.npmjs.org            npm install http-server -g --registry=https://registry.npm.taobao.org<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p>zsh</p><ul><li>mac zsh所有命令失效<br>PATH=/bin:/usr/bin:/usr/local/bin:${PATH}</li></ul></li><li><p>screen</p><ul><li><p>screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p></li><li><pre><code>参数说明:-A 　将所有的视窗都调整为目前终端机的大小。-d &lt;作业名称&gt; 　将指定的screen作业离线。-h &lt;行数&gt; 　指定视窗的缓冲区行数。-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。-r &lt;作业名称&gt; 　恢复离线的screen作业。-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。-s 　指定建立新视窗时，所要执行的shell。-S &lt;作业名称&gt; 　指定screen作业的名称。-v 　显示版本信息。-x 　恢复之前离线的screen作业。-ls或--list 　显示目前所有的screen作业。-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。C-a ? -&gt; 显示所有键绑定信息C-a c -&gt; 创建一个新的运行shell的窗口并切换到该窗口C-a n -&gt; Next，切换到下一个 window C-a p -&gt; Previous，切换到前一个 window C-a 0..9 -&gt; 切换到第 0..9 个 windowCtrl+a [Space] -&gt; 由视窗0循序切换到视窗9C-a C-a -&gt; 在两个最近使用的 window 间切换 C-a x -&gt; 锁住当前的 window，需用用户密码解锁C-a d -&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。 C-a z -&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。C-a w -&gt; 显示所有窗口列表C-a t -&gt; Time，显示当前时间，和系统的 load C-a k -&gt; kill window，强行关闭当前的 windowC-a [ -&gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样    C-b Backward，PageUp     C-f Forward，PageDown     H(大写) High，将光标移至左上角     L Low，将光标移至左下角     0 移到行首     $ 行末     w forward one word，以字为单位往前移     b backward one word，以字为单位往后移     Space 第一次按为标记区起点，第二次按为终点     Esc 结束 copy mode C-a ] -&gt; Paste，把刚刚在 copy mode 选定的内容贴上</code></pre></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 终端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flask</title>
       <link href="2021/08/07/flask/"/>
       <url>2021/08/07/flask/</url>
