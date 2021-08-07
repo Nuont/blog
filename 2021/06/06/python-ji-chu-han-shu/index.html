@@ -620,7 +620,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-07
+                    2021-07-21
                 </div>
                 
 
@@ -729,8 +729,8 @@ num1<span class="token punctuation">,</span> num2 <span class="token operator">=
 <span class="token keyword">print</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span>  <span class="token comment"># 200</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
-<li><p> lambda 表达式</p>
-</li>
+<li><p>lambda 表达式</p>
+<ul>
 <li><p>如果一个函数有一个返回值，并且只有一句代码，可以使用 lambda简化</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">lambda</span> 参数列表 ： 表达式<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>lambda表达式的参数可有可无，函数的参数在lambda表达式中完全适用。</p>
@@ -752,13 +752,13 @@ fn2 <span class="token operator">=</span> <span class="token keyword">lambda</sp
 <p>注意：直接打印lambda表达式，输出的是此lambda的内存地址</p>
 </blockquote>
 </li>
-<li><p>参数形式</p>
-<ol>
-<li>无参数</li>
-</ol>
+</ul>
 </li>
 </ul>
-<pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">fn1 <span class="token operator">=</span> <span class="token keyword">lambda</span><span class="token punctuation">:</span> <span class="token number">100</span>
+<pre><code>参数形式：
+
+1. 无参数
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fn1 <span class="token operator">=</span> <span class="token keyword">lambda</span><span class="token punctuation">:</span> <span class="token number">100</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>fn1<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 2. 一个参数
@@ -1047,7 +1047,8 @@ new_f <span class="token operator">=</span> <span class="token builtin">open</sp
 old_f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 new_f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h5><p>如果用户输入<code>.txt</code>，这是一个无效文件，程序如何更改才能限制只有有效的文件名才能备份？</p>
+<p>思考：</p>
+<p>如果用户输入<code>.txt</code>，这是一个无效文件，程序如何更改才能限制只有有效的文件名才能备份？</p>
 <p>答：添加条件判断即可。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">old_name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'请输入您要备份的文件名：'</span><span class="token punctuation">)</span>
 
@@ -1117,7 +1118,8 @@ new_f<span class="token punctuation">.</span>close<span class="token punctuation
 </ol>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>目录<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h5 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h5><p>需求：批量修改文件名，既可添加指定字符串，又能删除指定字符串。</p>
+<p>应用案例：</p>
+<p>需求：批量修改文件名，既可添加指定字符串，又能删除指定字符串。</p>
 <ul>
 <li>步骤</li>
 </ul>
@@ -2553,7 +2555,7 @@ xiaoqiu<span class="token punctuation">.</span>set_money<span class="token punct
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.6k</span>&nbsp;字
+                class="white-color">68.5k</span>&nbsp;字
             
             
             

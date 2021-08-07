@@ -620,7 +620,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-07
+                    2021-08-07
                 </div>
                 
 
@@ -680,16 +680,22 @@
 <h2 id="Django流程"><a href="#Django流程" class="headerlink" title="Django流程"></a>Django流程</h2><ul>
 <li><p>创建工程</p>
 <p>创建工程的命令为：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">django<span class="token operator">-</span>admin startproject 工程名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">python <span class="token operator">-</span>m django startprojet xxx
+django<span class="token operator">-</span>admin startproject 工程名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>创建子应用</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">python manage<span class="token punctuation">.</span>py startapp 子应用名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">python manage<span class="token punctuation">.</span>py startapp 子应用名称
+python mange<span class="token punctuation">.</span>py startproject xxx
+python <span class="token operator">-</span>m django startprojet xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>运行开发服务器</p>
 <pre class="line-numbers language-none"><code class="language-none">python manage.py runserver ip:端口
 或:
 python manage.py runserver
 # 可以不写IP和端口，默认IP是127.0.0.1，默认端口是8000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>创建超级用户</p>
+<pre class="line-numbers language-none"><code class="language-none">python manage.py changepassword admin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>项目结构分析:</strong></p>
 <ol>
@@ -3010,7 +3016,7 @@ after response 被调用<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.6k</span>&nbsp;字
+                class="white-color">68.5k</span>&nbsp;字
             
             
             
